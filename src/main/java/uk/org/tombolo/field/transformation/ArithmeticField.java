@@ -15,6 +15,7 @@ import java.util.function.BiFunction;
  * the operation on the two field values.
  */
 public class ArithmeticField extends AbstractField {
+    //TOASK syntatic sugar supporting `sum`
     public static enum Operation {div, mul, add, sub}
     private final FieldRecipe field1;
     private final FieldRecipe field2;
@@ -35,6 +36,7 @@ public class ArithmeticField extends AbstractField {
     public void initialize() {
         // Initialise operators
         operators = new HashMap<>();
+        //TOASK change the operations to library functions
         operators.put(Operation.div, (a, b) -> a / b);
         operators.put(Operation.mul, (a, b) -> a * b);
         operators.put(Operation.add, (a, b) -> a + b);

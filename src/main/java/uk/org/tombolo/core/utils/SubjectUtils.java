@@ -78,6 +78,7 @@ public class SubjectUtils {
 				}
 				saved++;
 
+				//TOASK check why 20, still keep 20, what if not 20 here but in hibernate properties?
 				if ( saved % 20 == 0 ) { //20, same as the JDBC batch size
 					//flush a batch of inserts and release memory:
 					session.flush();
@@ -144,6 +145,9 @@ public class SubjectUtils {
 	}
 
 	public static List<Subject> subjectsContainingSubject(SubjectType subjectType, Subject subject) {
+		//TOASK check if contain is the right function to use due to constrains to overlapping boundary
+		// check it the contains function returns true only of the subjects do not share a boundary and it's fully
+		// inside or otherwise
 		return HibernateUtil.withSession(session -> {
 			Query query = session.createQuery("from Subject where subjectType = :subjectType and contains(shape, :geom) = true", Subject.class);
 			query.setParameter("subjectType", subjectType);

@@ -4,6 +4,7 @@ import java.util.List;
 
 public class SubjectRecipe {
 
+	//TOASK can I have both of them at the same time?
 	public static class SubjectAttributeMatchRule {
 		public enum MatchableAttribute {label, name};
 		public final MatchableAttribute attribute;

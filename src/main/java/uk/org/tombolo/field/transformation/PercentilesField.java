@@ -18,13 +18,17 @@ import java.util.stream.IntStream;
 /**
  * Field that returns for a subject the percentile in which its value falls.
  * Percentiles can be calculated either over the output Subject or any other specified set of Subjects.
+ * //TOASK if you want to get the social isolation value for each lsoa, but insted of the score you get all the lsoa
+ * in england calculate the percentiles and map where the lsoas fall into.
  */
 public class PercentilesField extends AbstractField implements ParentField {
     private static Logger log = LoggerFactory.getLogger(PercentilesField.class);
 
     // The field over which to calculate the percentiles
+    //TOASK need to change the attribute name to `field`
     private final FieldRecipe valueField;
     // The subjects over which the percentiles are calculated
+    //TOASK subject name needs to change too into something not normalization
     private final List<SubjectRecipe> normalizationSubjects;
     // The number of percentiles
     private final Integer percentileCount;
@@ -36,6 +40,7 @@ public class PercentilesField extends AbstractField implements ParentField {
 
     public PercentilesField(
             String label,
+            //TOASK remove name
             String name,
             FieldRecipe valueField,
             List<SubjectRecipe> normalizationSubjects,

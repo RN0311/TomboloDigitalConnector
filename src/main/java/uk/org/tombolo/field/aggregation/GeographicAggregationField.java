@@ -30,6 +30,9 @@ import java.util.Map;
 public class GeographicAggregationField extends AbstractField {
     private static Logger log = LoggerFactory.getLogger(GeographicAggregationField.class);
 
+    //TOASK these functions can be extended eventually
+    // org.apache.commons.math3.stat.descriptive.summary, could have all the summary stats of a set, so could be
+    // extended to other stats
     public static enum AggregationFunction {sum, mean}
     private final SubjectRecipe subject;
     private final FieldRecipe field;
@@ -93,6 +96,7 @@ public class GeographicAggregationField extends AbstractField {
         return getDoubleValueForSubject(subject).toString();
     }
 
+    //TOASK nice to have this method - return doulble before converting to string. harmonise behaviour in other fileds
     private Double getDoubleValueForSubject(Subject subject) throws IncomputableFieldException {
         if (null == singleValueField) { initialize(); }
         String cachedValue = getCachedValue(subject);

@@ -19,8 +19,12 @@ import java.util.List;
  * Street that building is on (notwithstanding oddities in the data)
  */
 public class MapToNearestSubjectField extends AbstractField implements ParentField {
+    //TOASK how was the radius set?
+    //this will take the radius in degrees, default unit of default projection
+    // number chosen empirically
     private static final Double DEFAULT_MAX_RADIUS = 0.01;
 
+    //TOASK has this been changed in a PR?
     private final String nearestSubjectProvider;
     private final String nearestSubjectType;
     private final FieldRecipe field;

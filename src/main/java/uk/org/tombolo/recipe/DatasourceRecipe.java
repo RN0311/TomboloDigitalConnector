@@ -19,6 +19,8 @@ public class DatasourceRecipe {
 		this.localData = localData;
 	}
 
+	//TOASK can be removed probably as not used, the idea here was that the user could specify a config file in case
+	// of a generic importer
 	public DatasourceRecipe addConfigFile(String configFile) {
 		this.configFile = configFile;
 

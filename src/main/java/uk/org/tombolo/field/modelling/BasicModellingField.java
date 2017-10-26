@@ -27,8 +27,10 @@ public class BasicModellingField extends AbstractField implements ModellingField
     Field field;
     List<DatasourceRecipe> datasourceRecipes;
 
-    // Path and postfixes for predefined field specifications
+    // Path for predefined field specifications
     // Could be made configurable at some point
+    //TOASK check last merges for importers inside fields. This import will override the previous import in the data
+    // file. At this point the data file becomes redundant. Remove it's occorences.
     protected static final String fieldSpecPath = "modelling-fields/";
     protected static final String fieldSpecPostfix = "-field.json";
     protected static final String fieldDataPostfix = "-data.json";
@@ -45,6 +47,7 @@ public class BasicModellingField extends AbstractField implements ModellingField
         return datasourceRecipes;
     }
 
+    //TOASK this should not be here, this is a single value field thing
     @Override
     public String valueForSubject(Subject subject, Boolean timeStamp) throws IncomputableFieldException {
         if (field == null) initialize();

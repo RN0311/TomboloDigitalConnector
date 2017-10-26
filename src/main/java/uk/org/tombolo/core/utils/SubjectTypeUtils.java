@@ -29,6 +29,8 @@ public class SubjectTypeUtils {
 		});
 	}
 
+	//TOASK remove it because it is not needed, the importers that generate subject types already create them in the class
+	//TOASK the others that do not have one they should get if they are already there and in case create them
 	public static SubjectType getOrCreate(Provider provider, String label, String name) {
 		SubjectType subjectType = SubjectTypeUtils.getSubjectTypeByProviderAndLabel(provider.getLabel(), label);
 		if (null == subjectType) {

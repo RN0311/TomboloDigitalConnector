@@ -7,12 +7,14 @@ import uk.org.tombolo.core.Provider;
 import java.util.Arrays;
 import java.util.List;
 
+//TOASK missing unit test
 public class AttributeUtils {
 	public static void save(List<Attribute> attributes){
 		HibernateUtil.withSession(session -> {
 			session.beginTransaction();
 			for (Attribute attribute : attributes) {
 				// FIXME: This might be inefficient if we are updating the attribute over and over again without actually changing it
+				// TOASK: Harmonise the save in the various objects. Update os save can be done in different cases, not alwawys update
 				Attribute savedAttribute = getByProviderAndLabel(attribute.getProvider(), attribute.getLabel());
 				if (savedAttribute == null) {
 					Integer id = (Integer) session.save(attribute);

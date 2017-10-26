@@ -4,12 +4,15 @@ import org.hibernate.query.Query;
 import uk.org.tombolo.core.Provider;
 
 public class ProviderUtils {
+	//TOASK move it to the test
 	public static Provider getTestProvider(){
 		return HibernateUtil.withSession(session -> {
 			return (Provider)session.get(Provider.class, "uk.org.tombolo.test");
 		});
 	}
 
+	//TOASK harmonise by using this method for all the entities
+	//TOASK check an hibernate framework that already does that for us
 	public static void save(Provider provider){
 		HibernateUtil.withSession(session -> {
 			session.beginTransaction();

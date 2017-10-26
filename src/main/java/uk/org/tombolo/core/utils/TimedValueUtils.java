@@ -43,6 +43,7 @@ public class TimedValueUtils {
 		});
 	}
 
+	//TOASK if we can do it as an hibernate query its the way to go for
 	/**
 	 * getLatestBySubjectAndAttributes
 	 * Returns a list of TimedValues with the latest timestamp for each attribute on a subject
