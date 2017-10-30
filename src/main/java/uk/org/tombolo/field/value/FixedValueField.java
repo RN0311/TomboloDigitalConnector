@@ -9,6 +9,7 @@ import uk.org.tombolo.recipe.AttributeMatcher;
 /**
  * For a given subject, returns the {@link FixedValue} of a specified attribute.
  */
+//ANS should not extend ValuesByTimeField but AbstractField
 public class FixedValueField extends ValuesByTimeField {
 
     public FixedValueField(String label) {

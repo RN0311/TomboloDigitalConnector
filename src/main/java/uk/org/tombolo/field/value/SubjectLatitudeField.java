@@ -9,6 +9,7 @@ import uk.org.tombolo.field.AbstractField;
  * Returns the latitude of the centroid of the subject.
  */
 //TOASK do we use this? where and why?
+    //ans needed if we need a centroid value.
 public class SubjectLatitudeField extends AbstractField {
 
     public SubjectLatitudeField(String label) {

@@ -7,6 +7,7 @@ import uk.org.tombolo.field.AbstractField;
  * FixedAnnotationField.java
  * Returns a fixed value for annotation purposes.
  */
+//ANS change the name to ConstantField
 public class FixedAnnotationField extends AbstractField {
     private final String value;
 

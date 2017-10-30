@@ -8,6 +8,7 @@ import uk.org.tombolo.recipe.AttributeMatcher;
  *
  * The metadata is regarding the attribute.
  */
+//ans should implement SingleValueField
 public class LatestValueField extends ValuesByTimeField {
     public LatestValueField(String label, AttributeMatcher attribute) {
         super(label, attribute);

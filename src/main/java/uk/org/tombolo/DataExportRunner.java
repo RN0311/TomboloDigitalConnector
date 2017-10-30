@@ -39,6 +39,7 @@ public class DataExportRunner extends AbstractRunner {
         // Create engine
         DataExportEngine engine = new DataExportEngine(apiKeys, initialiseDowloadUtils());
 
+        //ans exit system here after catching the error in validateSpec
         validateSpecification(executionSpecPath);
 
         try (Writer writer = getOutputWriter(outputFile)) {

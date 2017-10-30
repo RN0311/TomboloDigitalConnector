@@ -20,10 +20,6 @@ import uk.org.tombolo.execution.FieldCache;
  * object). These are represented by interfaces that inherit from this one (e.g. SingleValueField).
  * Some exporters will only support certain kinds of Field (for instance, CSV files are tabular
  * and so can only accept SingleValueFields).
- *
- * TOASK:  This is not valide anymore with the changes to the json format
- * Currently every Field must return some JSON, but this may change in future to some more
- * generic structured data type.
  */
 public interface Field {
     JSONObject jsonValueForSubject(Subject subject, Boolean timeStamp) throws IncomputableFieldException;

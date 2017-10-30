@@ -12,6 +12,7 @@ import uk.org.tombolo.core.TimedValue;
  * the name of your field. It may be more readable if you create a subclass
  * of your generic field, or another field entirely.
  */
+//ans getTimedValue shouldn't be here
 public interface SingleValueField extends Field {
     String valueForSubject(Subject subject, Boolean timeStamp) throws IncomputableFieldException;
     TimedValue getTimedValue(Subject subject) throws IncomputableFieldException;

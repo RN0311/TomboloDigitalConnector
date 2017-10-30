@@ -128,6 +128,7 @@ task runCorrelation(dependsOn: ['classes'], type: JavaExec) {
 	}
 }
 
+//ans delete this task
 task runCatalogue(dependsOn: ['classes'], type: JavaExec) {
 	main = 'uk.org.tombolo.DataCatalogueRunner'
 	classpath = sourceSets.main.runtimeClasspath

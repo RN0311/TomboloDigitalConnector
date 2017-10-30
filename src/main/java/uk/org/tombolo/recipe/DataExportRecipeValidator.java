@@ -12,6 +12,10 @@ import org.slf4j.LoggerFactory;
 
 import java.io.Reader;
 
+//TOASK this file checks if the json schema is valid. Does this mean that we need to change
+// "data_export_specification_schema.json" every time we change names or other elements of the fields?
+// Do the tests fail if they don't change? I guess not.
+//ans this changes only if the recipe schema changes not the single elements
 public class DataExportRecipeValidator {
     static Logger log = LoggerFactory.getLogger(DataExportRecipeValidator.class);
 
@@ -27,6 +31,8 @@ public class DataExportRecipeValidator {
         }
     }
 
+    //ans throw an exception if the schema is invalid - create InvalidSchemaException
+    //TODO create InvalidSchemaException
     public static void display(ProcessingReport report) {
         String logString = "The specification file contains errors\n\n";
 

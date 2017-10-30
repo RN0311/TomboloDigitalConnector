@@ -9,6 +9,7 @@ import uk.org.tombolo.recipe.AttributeMatcher;
  *
  * The metadata is regarding the attribute.
  */
+//ans outputs a time series
 public class ValuesByTimeField extends AbstractField {
 
     public ValuesByTimeField(String label) {
