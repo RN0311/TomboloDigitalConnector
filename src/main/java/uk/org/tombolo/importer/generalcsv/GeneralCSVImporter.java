@@ -26,6 +26,7 @@ import java.util.stream.IntStream;
 
 /**
  * General importer for CSV files.
+ * //ans document this class
  */
 public class GeneralCSVImporter extends AbstractImporter {
     static Logger log = LoggerFactory.getLogger(GeneralCSVImporter.class);

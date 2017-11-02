@@ -18,6 +18,9 @@ import java.util.*;
  * Importer for Space Syntax PostGIS database tables
  *
  * Takes a datasource id of the form "schema_name.table_name"
+ *
+ * //ans asign to every street in the UK a
+ * //angular cost - cost of anyone to change their angle, calculation of the angular cost reach from A - B
  */
 public class OpenSpaceNetworkImporter extends AbstractGeotoolsDataStoreImporter {
     private static Logger log = LoggerFactory.getLogger(OpenSpaceNetworkImporter.class);

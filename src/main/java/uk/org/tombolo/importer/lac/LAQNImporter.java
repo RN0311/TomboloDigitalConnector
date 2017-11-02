@@ -21,6 +21,8 @@ import java.util.stream.IntStream;
 
 /**
  * London Air Quality Importer
+ * //ans they publish the data hourly so we might want to have this implemented here.
+ * Create an issue to add to the real time milestone
  */
 public class LAQNImporter extends AbstractImporter implements Importer{
 
