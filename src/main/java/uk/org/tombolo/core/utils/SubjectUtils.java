@@ -108,11 +108,13 @@ public class SubjectUtils {
 
 		// Add Geo Match Rule if exists
 		if (null != subjectRecipe.getGeoMatchRule()){
-			if (subjectRecipe.getGeoMatchRule().geoRelation == SubjectRecipe.SubjectGeoMatchRule.GeoRelation.within){
+			if (subjectRecipe.getGeoMatchRule().geoRelation == SubjectRecipe.SubjectGeoMatchRule.GeoRelation.within) {
 				hqlQuery += " and within(shape, :geom) = true";
+			}else if (subjectRecipe.getGeoMatchRule().geoRelation == SubjectRecipe.SubjectGeoMatchRule.GeoRelation.within_buffer){
+					hqlQuery += "and within(ST_buffer(shape::geography, 500)::geometry, :geom) = true";
 			}else{
 				throw new IllegalArgumentException(String.format(
-						"SubjectGeoMatchRule attribute is not a valid type (is %s, can only be within)",
+						"SubjectGeoMatchRule attribute is not a valid type (is %s, can only be within or within_buffer)",
 						subjectRecipe.getGeoMatchRule().geoRelation.name()));
 			}
 		}
@@ -156,6 +158,16 @@ public class SubjectUtils {
 	public static List<Subject> subjectsWithinSubject(SubjectType subjectType, Subject subject) {
 		return HibernateUtil.withSession(session -> {
 			Query query = session.createQuery("from Subject where subjectType = :subjectType and within(shape, :geom) = true", Subject.class);
+			query.setParameter("subjectType", subjectType);
+			query.setParameter("geom", subject.getShape());
+			query.setCacheable(true);
+			return (List<Subject>) query.getResultList();
+		});
+	}
+
+	public static List<Subject> subjectsWithinBufferSubject(SubjectType subjectType, Subject subject) {
+		return HibernateUtil.withSession(session -> {
+			Query query = session.createQuery("from Subject where subjectType = :subjectType and within(st_buffer(shape, 500), :geom) = true", Subject.class);
 			query.setParameter("subjectType", subjectType);
 			query.setParameter("geom", subject.getShape());
 			query.setCacheable(true);
